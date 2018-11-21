@@ -12,6 +12,8 @@ void main(int argc, char *argv[])
   struct sockaddr_in addr;
   struct hostent *entree;
 
+  int choix;
+
   if (argc !=3)  {
       printf("usage : clientv4 nom_serveur port\n");
 	exit(1);    }
@@ -33,9 +35,18 @@ void main(int argc, char *argv[])
       bzero(texte,sizeof(texte)); 
       bzero(buffer,sizeof(buffer));     
       i = 0;
+      
+      do
+      {
+        printf("Choissisez une option\n1) Nombre de voyelles dans le texte\n2) Longueur du texte\n3) Quitter\n");
+        scanf("%d", &choix);
+      }while(choix >3 || choix < 0);
       printf("Entrez une ligne de texte : \n");
+      texte[i] = choix + '0';
+      printf("%c\n", texte[i]);
+      i++;
       while((c=getchar()) != '\n')
-	texte[i++]=c;
+	      texte[i++]=c;
       send(sock,texte,strlen(texte)+1,0);
       recv(sock,buffer,sizeof(buffer),0);
       printf("recu %s\n",buffer);

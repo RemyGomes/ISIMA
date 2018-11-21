@@ -1,0 +1,118 @@
+<%- include('_layout/header'); -%>
+
+  <nav class="deep-orange darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="/">
+        <img id="logo" src="/static/image/bde_logo.png" alt="Une image de pizza">
+        <a id="logo-container" href="/" class="brand-logo">PiZZima</a>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="#"><img id="logo-commande-pizza" src="/static/image/Pizza_commande_nav.png" alt="Une image de boite de pizza"></a>
+        </li>
+        <li>
+          <!-- <li> -->
+            <!-- <img class="responsive-img" src="ressources/Pizza_commande.png" alt="Une image de boite pizza"> -->
+              <!-- Dropdown Trigger -->
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Se connecter</a>
+
+            <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">Mon compte</a></li>
+              <li><a href="#!">two</a></li>
+              <li class="divider" tabindex="-1"></li>
+              <li><a href="#!">three</a></li>
+              <li>
+                <a href="#!"><i class="material-icons">view_module</i>four</a>
+              </li>
+              <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+            </ul>
+            <!-- <a href="#">Ma commande</a> -->
+          <!-- </li> -->
+        <li>
+      </ul>
+
+
+      <!-- Partie nav-mobile -->
+      <ul id="nav-mobile" class="sidenav">
+        <li>
+          <a href="#">Ma commande</a>
+        </li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">PiZZima</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Liste de pizza</h5>
+      </div>
+      <div class="row   center">
+        <li>Pizza 4 Fromages<img id="logo-list-commande" src="/static/image/Pizza_4_fromages.jpg" alt="Une pizza 4 fromages"></li>
+        <li>Pizza Savoyarde<img id="logo-list-commande" src="/static/image/Pizza_savoyarde.jpg" alt="Une pizza savoyarde"></li>
+        <li>Pizza Steak & Cheese<img id="logo-list-commande" src="/static/image/Pizza_steak_cheese.jpg" alt="Une pizza Steak & Cheese"></li>
+      </div> 
+      <div class="row center">
+        <a onclick="document.getElementById('add_pizza').style.display='block'" id="button_add_pizza" class="btn-large waves-effect waves-light orange">Ajouter une pizza</a>
+        <!-- Button to open the modal login form -->
+        <!-- The Modal -->
+        <div id="add_pizza" class="modal">
+          <span onclick="document.getElementById('add_pizza').style.display='none'" 
+        class="close" title="Close Modal">&times;</span>
+
+          <!-- Modal Content -->
+          <form class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+              <img src="/static/image/bde_logo.png" alt="Logo du BDE" class="avatar">
+            </div>
+
+            <div class="container">
+              <label for="uname"><b>Nom de la pizza</b></label>
+              <input type="text" placeholder="Pizza" name="uname" required>
+
+              <label for="psw"><b>Image de la pizza</b></label>
+              <input type="text" placeholder="" name="psw" required>
+
+              <button type="submit">Ajouter</button>
+            </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+<!--
+  <div class="container">
+    <div class="section">
+    -->
+      <!--   Icon Section   -->
+      <!--
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Un large choix de pizzas</h5>
+
+            <p class="light">PiZZima vous propose une multitude de pizzas à commander.</p>
+            <img class="center" src="/ressources/Pizza_body.png">
+          </div>
+        </div>
+    </div>
+    <br><br>
+  </div
+-->
+
+
+
+
+</html>
+
+
+<%- include('_layout/footer'); -%>

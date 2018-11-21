@@ -1,0 +1,41 @@
+[
+	{
+	    "id_pizza": 0,
+	    "nom_pizza": "4 Fromages",
+	    "image_pizza": "/static/image/Pizza_4_fromages.jpg",
+	    "compo_pizza": [
+	    	"Sauce tomate",
+	    	"(ou crème fraîche légère)",
+	    	"Mozzarella",
+	    	"Chèvre",
+	    	"Emmental",
+	    	"Fourme d'Ambert"
+	    ]
+	},
+	{
+	    "id_pizza": 1,
+	    "nom_pizza": "Savoyarde",
+	    "image_pizza": "/static/image/Pizza_savoyarde.jpg",
+	    "compo_pizza": [
+	    	"Crème fraîche légère",
+	    	"mozzarella",
+	    	"lardons fumés", 
+	    	"pommes de terre sautées", 
+	    	"Reblochon A.O.P. de Savoie", 
+	    	"origan"
+	    ]
+	},
+	{
+	    "id_pizza": 2,
+	    "nom_pizza": "Savoyarde",
+	    "image_pizza": "/static/image/Pizza_steak_cheese.jpg",
+	    "compo_pizza": [
+	    	"Crème fraîche légère",
+	    	"mozzarella",
+	    	"lardons fumés",
+	    	"pommes de terre sautées",
+	    	"Reblochon A.O.P. de Savoie",
+	    	"origan"
+	    ]
+	}
+]

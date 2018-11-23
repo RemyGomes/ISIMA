@@ -1,5 +1,13 @@
 # -*- coding: utf-8 -*-
+
+from Crypto.Cipher import AES
+from Crypto import Random
+
 import base64
+
+# AES
+def pad(s):
+    return s + b"\0" * (AES.block_size - len(s) % AES.block_size)
 
 def Xor(string,key):
     """ Chiffrement Ou exclusif. string et key sont des chaines de caractères."""
@@ -25,11 +33,25 @@ def EncodeAES(chaine,key):
     """ Chiffrement AES 128 bits de chaine avec key comme clef.
         La taille de chaine est quelconque et sera complétée par le
         caractère espace si nécessaire. Key est un tableau 16 éléments."""
-        
+    while((len(chaine)%16) !=0) :
+        chaine = chaine + " "
+    keystring =  ''.join((str(key)) for e in chaine)
+    chaine = pad(chaine)
+    iv = Random.new().read(AES.block_size)
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    return iv + cipher.encrypt(chaine)
+
+
+    
 
 def DecodeAES(chaine,key):
     """ Déchiffre chaine. La clef key est un tableau de 16 éléments.
         Les caractères espace en fin de la chaine résultatante seront supprimés."""
+    iv = chaine[:AES.block_size]
+    keystring =  ''.join((str(key)) for e in chaine)
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    plaintext = cipher.decrypt(chaine[AES.block_size:])
+    return plaintext.rstrip(b"\0")
 
 def Contient(aiguille,chaine):
     """ Résultat True si le paramètre chaine contient la chaine aiguille."""
@@ -75,7 +97,6 @@ def main():
     print (EncodeBase64(b"Une Chaine")==b"VW5lIENoYWluZQ==")
     print (DecodeBase64(b"VW5lIENoYWluZQ==")==b"Une Chaine")
     print (EncodeAES(b"Elements",[2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6])==b"\xcb[q(\x07\xe70\xff\x13D\xfe\xf9\x9eQ\x08!")
-    print(",".join([2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6]))
     print (DecodeAES(b"\xcb[q(\x07\xe70\xff\x13D\xfe\xf9\x9eQ\x08!",[2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,6])==b"Elements")
     print (Contient("OK","Le resultat est OK !")==True)
     print (Contient("OK","Le resultat est Ok !")==False)
